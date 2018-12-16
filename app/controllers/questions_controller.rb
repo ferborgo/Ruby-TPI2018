@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
+  attr_reader :current_user
   before_action :set_question, only: [:show, :update, :destroy]
+  before_action :authenticate_request, only: [:create, :update, :delete]
 
   # GET /questions
   def index
@@ -71,5 +73,10 @@ class QuestionsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def question_params
       params.require(:question).permit(:title, :description, :status, :user_id)
+    end
+
+    def authenticate_request
+      @current_user = AuthorizeApiRequest.call(request.headers).result
+      render json: { error: 'Not Authorized' }, status: 401 unless @current_user
     end
 end
