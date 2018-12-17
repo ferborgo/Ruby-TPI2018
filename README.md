@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Trabajo Práctico Integrador de la materia TTPS opción Ruby 2018.
 
-Things you may want to cover:
+Versión de Ruby: 2.5.1
+Versión de Rails: 5.2.2
 
-* Ruby version
+El sistema utiliza la gema mysql2, así que se deben instalar sus dependencias con el comando:
 
-* System dependencies
+$ sudo apt-get install libmysqlclient-dev
 
-* Configuration
+Todas las gemas necesarias están definidas en el archivo Gemfile.
 
-* Database creation
+Para instalarlas, correr el siguiente comando:
 
-* Database initialization
+$ bundle install
 
-* How to run the test suite
+El servidor se levanta con el comando
 
-* Services (job queues, cache servers, search engines, etc.)
+$ rails s
 
-* Deployment instructions
-
-* ...
+Y escuchará en el puerto 3000.
